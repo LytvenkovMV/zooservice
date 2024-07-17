@@ -1,6 +1,3 @@
-import lombok.AllArgsConstructor;
-import lombok.Data;
-
 import java.util.Objects;
 
 public class Animal {

@@ -32,4 +32,8 @@ public class ZooService {
 //        animals.add(a);
         return "УСПЕШНО!";
     }
+
+    private void saveToFile(Animal a) {
+
+    }
 }
