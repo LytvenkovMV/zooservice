@@ -1,3 +1,7 @@
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.File;
+import java.io.IOException;
 import java.util.Set;
 
 public class ZooService {
@@ -26,14 +30,21 @@ public class ZooService {
     }
 
     public String add(Animal a) {
-//        if (animals.contains(a)) {
-//            return "ОШИБКА! Такое животное уже есть в зоопарке";
-//        }
-//        animals.add(a);
-        return "УСПЕШНО!";
+        if (animals.contains(a)) {
+            return "ОШИБКА! Такое животное уже есть в зоопарке";
+        }
+        animals.add(a);
+        return saveToFile(animals);
     }
 
-    private void saveToFile(Animal a) {
-
+    private String saveToFile(Set<Animal> set) {
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            mapper.writeValue(new File("/zooservice.txt"), set);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "ОШИБКА!";
+        }
+        return "УСПЕШНО!";
     }
 }
