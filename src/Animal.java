@@ -5,14 +5,21 @@ import java.util.Objects;
 
 public class Animal {
 
-//    private final Enum type;
-//    private String name;
-//    private final int pawNumber;
-//    private final FeedType feedType;
-//    private final Color color;
-//    private final Habitat habitat;
+    private final Type type;
+    private final int pawNumber;
+    private final FeedType feedType;
+    private String name;
+    private Color color;
+    private Habitat habitat;
 
-    private enum Type {
+    public Animal(Type type, String name, int pawNumber, FeedType feedType) {
+        this.type = type;
+        this.name = name;
+        this.pawNumber = pawNumber;
+        this.feedType = feedType;
+    }
+
+    public enum Type {
         WOLF,
         TIGER,
         BEAR,
@@ -20,19 +27,19 @@ public class Animal {
         KANGAROO
     }
 
-    private enum FeedType {
+    public enum FeedType {
         MEAT,
         GRASS
     }
 
-    private enum Color {
+    public enum Color {
         BLACK,
         GRAY,
         YELLOW,
         WHITE
     }
 
-    private enum Habitat {
+    public enum Habitat {
         EURASIA,
         NORTH_AMERICA,
         SOUTH_AMERICA,
@@ -41,18 +48,18 @@ public class Animal {
         ANTARCTICA
     }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        Animal animal = (Animal) o;
-//        return pawNumber == animal.pawNumber && Objects.equals(type, animal.type) && Objects.equals(name, animal.name) && feedType == animal.feedType && color == animal.color && habitat == animal.habitat;
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(type, name, pawNumber, feedType, color, habitat);
-//    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Animal animal = (Animal) o;
+        return pawNumber == animal.pawNumber && Objects.equals(type, animal.type) && Objects.equals(name, animal.name) && feedType == animal.feedType && color == animal.color && habitat == animal.habitat;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(type, name, pawNumber, feedType, color, habitat);
+    }
 }
 
 
