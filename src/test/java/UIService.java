@@ -9,8 +9,9 @@ public class UIService {
         System.out.println("2 - Получить список животных по типу");
         System.out.println("3 - Получить любое животное по типу");
         System.out.println("4 - Добавить животное");
-        System.out.println("5 - Удалить животное");
-        System.out.println("6 - Обновить имя животного");
+        System.out.println("5 - Получить животное по имени");
+        System.out.println("6 - Удалить животное по имени");
+        System.out.println("7 - Обновить имя животного");
         System.out.println("R - Выход из программы");
     }
 

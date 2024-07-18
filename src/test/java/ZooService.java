@@ -48,6 +48,14 @@ public class ZooService {
         return "УСПЕШНО!";
     }
 
+    public String get(String name) {
+        Optional<Animal> opt = animals.stream()
+                .filter(a -> a.getName().equals(name))
+                .findFirst();
+        if (opt.isEmpty()) return "ОШИБКА!";
+        return opt.get().toString();
+    }
+
     public String delete(String name) {
         Optional<Animal> opt = animals.stream()
                 .filter(a -> a.getName().equals(name))

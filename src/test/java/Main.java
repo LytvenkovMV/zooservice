@@ -60,15 +60,22 @@ public class Main {
                     System.out.println(service.add(animal));
                     break;
 
-                /* DELETE ANIMAL */
+                /* GET ANIMAL BY NAME */
                 case "5":
+                    System.out.println("Введите имя животного");
+                    name = UIService.getAnimalName();
+                    System.out.println(service.get(name));
+                    break;
+
+                /* DELETE ANIMAL */
+                case "6":
                     System.out.println("Введите имя животного");
                     name = UIService.getAnimalName();
                     System.out.println(service.delete(name));
                     break;
 
                 /* UPDATE ANIMAL NAME */
-                case "6":
+                case "7":
                     System.out.println("Введите старое имя");
                     String oldName = UIService.getAnimalName();
                     System.out.println("Введите новое имя");
