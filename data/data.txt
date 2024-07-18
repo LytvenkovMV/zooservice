@@ -1,0 +1,1 @@
+[{"type":"WOLF","pawNumber":2,"feedType":"GRASS","name":"asd","color":"BLACK","habitat":"EURASIA"},{"type":"WOLF","pawNumber":2,"feedType":"GRASS","name":"qwe","color":"BLACK","habitat":"EURASIA"}]

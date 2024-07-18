@@ -48,7 +48,7 @@ public class Main {
                     type = UIService.getAnimalType();
                     System.out.println("Введите тип корма для животного (0 - список)");
                     feedType = UIService.getAnimalFeedType();
-                    System.out.println("Введите ареол обитания (0 - список)");
+                    System.out.println("Введите ареал обитания (0 - список)");
                     habitat = UIService.getAnimalHabitat();
                     System.out.println("Введите цвет животного (0 - список)");
                     color = UIService.getAnimalColor();
