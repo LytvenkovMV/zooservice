@@ -1,5 +1,10 @@
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
 import java.util.Objects;
 
+@Data
+@AllArgsConstructor
 public class Animal {
 
     private final Type type;
@@ -8,13 +13,6 @@ public class Animal {
     private String name;
     private Color color;
     private Habitat habitat;
-
-    public Animal(Type type, String name, int pawNumber, FeedType feedType) {
-        this.type = type;
-        this.name = name;
-        this.pawNumber = pawNumber;
-        this.feedType = feedType;
-    }
 
     public enum Type {
         WOLF,
@@ -43,6 +41,18 @@ public class Animal {
         AFRICA,
         AUSTRALIA,
         ANTARCTICA
+    }
+
+    @Override
+    public String toString() {
+        return "Животное{" +
+                "тип=" + type +
+                ", число лап=" + pawNumber +
+                ", тип корма=" + feedType +
+                ", имя='" + name + '\'' +
+                ", цвет=" + color +
+                ", ареол обитания=" + habitat +
+                '}';
     }
 
     @Override
