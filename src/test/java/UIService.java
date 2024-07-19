@@ -4,17 +4,6 @@ public class UIService {
 
     private static Scanner scanner = new Scanner(System.in);
 
-    public static void printCommandList() {
-        System.out.println("1 - Получить список всех животных");
-        System.out.println("2 - Получить список животных по типу");
-        System.out.println("3 - Получить любое животное по типу");
-        System.out.println("4 - Добавить животное");
-        System.out.println("5 - Получить животное по имени");
-        System.out.println("6 - Удалить животное по имени");
-        System.out.println("7 - Обновить имя животного");
-        System.out.println("R - Выход из программы");
-    }
-
     public static Animal.Type getAnimalType() {
         while (true) {
             String cmd = scanner.nextLine();
@@ -132,6 +121,30 @@ public class UIService {
             } catch (NumberFormatException e) {
                 e.printStackTrace();
                 System.out.println("ОШИБКА!");
+            }
+        }
+    }
+
+    public static Animal.Property getProperty() {
+        while (true) {
+            String cmd = scanner.nextLine();
+            switch (cmd) {
+                case "0":
+                    System.out.println("1 - Тип");
+                    System.out.println("2 - Тип корма");
+                    System.out.println("3 - Цвет");
+                    System.out.println("4 - Ареал обитания");
+                    break;
+                case "1":
+                    return Animal.Property.TYPE;
+                case "2":
+                    return Animal.Property.FEED_TYPE;
+                case "3":
+                    return Animal.Property.COLOR;
+                case "4":
+                    return Animal.Property.HABITAT;
+                default:
+                    System.out.println("ОШИБКА!");
             }
         }
     }
