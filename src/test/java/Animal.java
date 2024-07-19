@@ -15,43 +15,83 @@ public class Animal {
     private Habitat habitat;
 
     public enum Type {
-        WOLF,
-        TIGER,
-        BEAR,
-        PENGUIN,
-        KANGAROO
+        WOLF("волк"),
+        TIGER("тигр"),
+        BEAR("медведь"),
+        PENGUIN("пингвин"),
+        KANGAROO("кенгуру");
+
+        private final String str;
+
+        Type(String str) {
+            this.str = str;
+        }
+
+        public String getStr() {
+            return str;
+        }
     }
 
     public enum FeedType {
-        MEAT,
-        GRASS
+        MEAT("хищник"),
+        GRASS("травоядный");
+
+        private final String str;
+
+        FeedType(String str) {
+            this.str = str;
+        }
+
+        public String getStr() {
+            return str;
+        }
     }
 
     public enum Color {
-        BLACK,
-        GRAY,
-        YELLOW,
-        WHITE
+        BLACK("черный"),
+        GRAY("серый"),
+        YELLOW("желтый"),
+        WHITE("белый");
+
+        private final String str;
+
+        Color(String str) {
+            this.str = str;
+        }
+
+        public String getStr() {
+            return str;
+        }
     }
 
     public enum Habitat {
-        EURASIA,
-        NORTH_AMERICA,
-        SOUTH_AMERICA,
-        AFRICA,
-        AUSTRALIA,
-        ANTARCTICA
+        EURASIA("Евразия"),
+        NORTH_AMERICA("Северная Америка"),
+        SOUTH_AMERICA("Южная Америка"),
+        AFRICA("Африка"),
+        AUSTRALIA("Австралия"),
+        ANTARCTICA("Антарктида");
+
+        private final String str;
+
+        Habitat(String str) {
+            this.str = str;
+        }
+
+        public String getStr() {
+            return str;
+        }
     }
 
     @Override
     public String toString() {
         return "Животное{" +
-                "тип=" + type +
+                "тип=" + type.getStr() +
                 ", число лап=" + pawNumber +
-                ", тип корма=" + feedType +
+                ", тип корма=" + feedType.getStr() +
                 ", имя='" + name + '\'' +
-                ", цвет=" + color +
-                ", ареол обитания=" + habitat +
+                ", цвет=" + color.getStr() +
+                ", ареол обитания=" + habitat.getStr() +
                 '}';
     }
 

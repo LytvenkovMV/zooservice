@@ -52,9 +52,9 @@ public class Main {
                     habitat = UIService.getAnimalHabitat();
                     System.out.println("Введите цвет животного (0 - список)");
                     color = UIService.getAnimalColor();
-                    System.out.println("Введите имя животного");
+                    System.out.println("Введите имя животного не меннее 3-х символов");
                     name = UIService.getAnimalName();
-                    System.out.println("Введите количество лап");
+                    System.out.println("Введите количество лап от 2 до 100");
                     pawNumber = UIService.getAnimalPawNumber();
                     Animal animal = new Animal(type, pawNumber, feedType, name, color, habitat);
                     System.out.println(service.add(animal));

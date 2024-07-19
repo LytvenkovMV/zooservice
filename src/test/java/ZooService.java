@@ -1,13 +1,14 @@
+import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 public class ZooService {
 
-    private Set<Animal> animals;
+    private HashSet<Animal> animals;
 
     public ZooService() {
-        this.animals = Storage.readFromFile();
+        this.animals = (HashSet<Animal>) Storage.readFromFile();
     }
 
     public String getAll() {
@@ -16,6 +17,7 @@ public class ZooService {
         sb.append(System.lineSeparator());
         for (Animal a : animals) {
             sb.append(a.toString());
+            sb.append(System.lineSeparator());
         }
         return sb.toString();
     }
@@ -27,7 +29,10 @@ public class ZooService {
         Set<Animal> set = animals.stream()
                 .filter(a -> a.getType() == type)
                 .collect(Collectors.toSet());
-        for (Animal a : set) sb.append(a.toString());
+        for (Animal a : set) {
+            sb.append(a.toString());
+            sb.append(System.lineSeparator());
+        }
         return sb.toString();
     }
 
@@ -52,7 +57,7 @@ public class ZooService {
         Optional<Animal> opt = animals.stream()
                 .filter(a -> a.getName().equals(name))
                 .findFirst();
-        if (opt.isEmpty()) return "ОШИБКА!";
+        if (opt.isEmpty()) return "ОШИБКА! Животное с именем " + name + " не найдено";
         return opt.get().toString();
     }
 
@@ -60,22 +65,32 @@ public class ZooService {
         Optional<Animal> opt = animals.stream()
                 .filter(a -> a.getName().equals(name))
                 .findFirst();
-        if (opt.isEmpty()) return "ОШИБКА!";
+        if (opt.isEmpty()) return "ОШИБКА! Животное с именем " + name + " не найдено";
         animals.remove(opt.get());
+
         Storage.saveToFile(animals);
+
         return "УСПЕШНО!";
     }
 
-    public String updateName (String oldName, String newName) {
+    public String updateName(String oldName, String newName) {
         Optional<Animal> optOld = animals.stream()
                 .filter(a -> a.getName().equals(oldName))
                 .findFirst();
-        if (optOld.isEmpty()) return "ОШИБКА!";
-        animals.remove(optOld.get());
+        if (optOld.isEmpty()) return "ОШИБКА! Животное с именем " + oldName + " не найдено";
+
+        Optional<Animal> optNew = animals.stream()
+                .filter(a -> a.getName().equals(newName))
+                .findFirst();
+        if (optNew.isPresent()) return "ОШИБКА! Животное с именем " + newName + " уже есть";
+
         Animal a = optOld.get();
         a.setName(newName);
+        animals.remove(optOld.get());
         animals.add(a);
+
         Storage.saveToFile(animals);
+
         return "УСПЕШНО!";
     }
 }
