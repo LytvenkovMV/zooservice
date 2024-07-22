@@ -16,6 +16,13 @@ public class Animal {
     private Color color;
     private Habitat habitat;
 
+    public enum Property {
+        TYPE,
+        FEED_TYPE,
+        COLOR,
+        HABITAT
+    }
+
     public enum Type {
         WOLF("волк"),
         TIGER("тигр"),
@@ -93,7 +100,7 @@ public class Animal {
                 ", тип корма=" + feedType.getStr() +
                 ", имя='" + name + '\'' +
                 ", цвет=" + color.getStr() +
-                ", ареол обитания=" + habitat.getStr() +
+                ", ареал обитания=" + habitat.getStr() +
                 '}';
     }
 
