@@ -59,22 +59,22 @@ public class Main {
                     System.out.println("Введите признак животного (0 - список)");
                     property = UIService.getProperty();
                     switch (property) {
-                        case Property.TYPE:
+                        case TYPE:
                             System.out.println("Введите тип животного (0 - список)");
                             type = UIService.getAnimalType();
                             System.out.println(service.getAllByType(type));
                             break;
-                        case Property.FEED_TYPE:
+                        case FEED_TYPE:
                             System.out.println("Введите тип корма для животного (0 - список)");
                             feedType = UIService.getAnimalFeedType();
                             System.out.println(service.getAllByFeedType(feedType));
                             break;
-                        case Property.COLOR:
+                        case COLOR:
                             System.out.println("Введите цвет животного (0 - список)");
                             color = UIService.getAnimalColor();
                             System.out.println(service.getAllByColor(color));
                             break;
-                        case Property.HABITAT:
+                        case HABITAT:
                             System.out.println("Введите ареал обитания (0 - список)");
                             habitat = UIService.getAnimalHabitat();
                             System.out.println(service.getAllByHabitat(habitat));

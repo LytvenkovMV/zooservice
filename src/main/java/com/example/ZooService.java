@@ -1,8 +1,5 @@
 package com.example;
 
-import com.example.Animal;
-import com.example.Storage;
-
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;

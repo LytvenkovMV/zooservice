@@ -1,6 +1,5 @@
 package com.example;
 
-import com.example.Animal;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
