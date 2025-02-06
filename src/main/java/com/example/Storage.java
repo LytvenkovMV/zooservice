@@ -42,17 +42,9 @@ public class Storage {
 
     public void saveToFile(Set<Animal> set) {
         try {
-            File file = new File(path);
-            if (!file.exists()) {
-                System.out.println("ФАйЛ НЕ НАЙДЕН!");
-                if (file.createNewFile()) {
-                    System.out.println("СОЗДАН НОВЫЙ ФАЙЛ!");
-                    mapper.writeValue(file, set);
-                    System.out.println("УСПЕШНО СОХРАНЕНО В ФАЙЛ!");
-                }
-            }
+            mapper.writeValue(file, set);
+            System.out.println("УСПЕШНО СОХРАНЕНО В ФАЙЛ!");
         } catch (IOException e) {
-            e.printStackTrace();
             System.out.println("ОШИБКА СОХРАНЕНИЯ В ФАЙЛ!");
         }
     }

@@ -112,9 +112,7 @@ public class ZooService {
                 .findFirst();
         if (opt.isEmpty()) return "ОШИБКА! Животное с именем " + name + " не найдено";
         animals.remove(opt.get());
-
         storage.saveToFile(animals);
-
         return "УСПЕШНО!";
     }
 
@@ -133,9 +131,7 @@ public class ZooService {
         a.setName(newName);
         animals.remove(optOld.get());
         animals.add(a);
-
         storage.saveToFile(animals);
-
         return "УСПЕШНО!";
     }
 
