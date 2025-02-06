@@ -1,16 +1,17 @@
 package com.example;
 
-import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 public class ZooService {
 
-    private HashSet<Animal> animals;
+    private final Set<Animal> animals;
+    private final Storage storage;
 
     public ZooService() {
-        this.animals = (HashSet<Animal>) Storage.readFromFile();
+        this.storage = new Storage();
+        this.animals = storage.readFromFile();
     }
 
     public String getAll() {
@@ -93,7 +94,7 @@ public class ZooService {
             return "ОШИБКА! Такое животное уже есть в зоопарке";
         }
         animals.add(a);
-        Storage.saveToFile(animals);
+        storage.saveToFile(animals);
         return "УСПЕШНО!";
     }
 
@@ -112,7 +113,7 @@ public class ZooService {
         if (opt.isEmpty()) return "ОШИБКА! Животное с именем " + name + " не найдено";
         animals.remove(opt.get());
 
-        Storage.saveToFile(animals);
+        storage.saveToFile(animals);
 
         return "УСПЕШНО!";
     }
@@ -133,7 +134,7 @@ public class ZooService {
         animals.remove(optOld.get());
         animals.add(a);
 
-        Storage.saveToFile(animals);
+        storage.saveToFile(animals);
 
         return "УСПЕШНО!";
     }
