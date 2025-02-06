@@ -1,8 +1,0 @@
-services:
-  my-zooservice:
-    container_name: my-zooservice-cont
-    build:
-      context: .
-      dockerfile: Dockerfile
-    volumes:
-      - .:/my-zooservice
