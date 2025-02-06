@@ -23,7 +23,7 @@ public class Storage {
                     System.out.println("СОЗДАН НОВЫЙ ФАЙЛ!");
                 }
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                e.printStackTrace();
             }
         }
     }
