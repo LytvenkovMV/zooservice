@@ -11,8 +11,7 @@ import java.util.Set;
 public class Storage {
 
     private final static ObjectMapper mapper = new ObjectMapper();
-    private final static File fileParent = new File(System.getProperty("user.dir"));
-    private final static File file = new File(fileParent, "appdata/appdata.txt");
+    public static final File file = new File("appdata/appdata.txt");
 
     public static Set<Animal> readFromFile() {
         Set<Animal> animalSet = new HashSet<>();
