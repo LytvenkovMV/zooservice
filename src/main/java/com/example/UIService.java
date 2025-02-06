@@ -1,7 +1,5 @@
 package com.example;
 
-import com.example.Animal;
-
 import java.util.Scanner;
 
 public class UIService {
