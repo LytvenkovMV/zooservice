@@ -1,3 +1,5 @@
+package com.example;
+
 import java.util.Scanner;
 
 public class Main {
@@ -57,22 +59,22 @@ public class Main {
                     System.out.println("Введите признак животного (0 - список)");
                     property = UIService.getProperty();
                     switch (property) {
-                        case TYPE:
+                        case Property.TYPE:
                             System.out.println("Введите тип животного (0 - список)");
                             type = UIService.getAnimalType();
                             System.out.println(service.getAllByType(type));
                             break;
-                        case FEED_TYPE:
+                        case Property.FEED_TYPE:
                             System.out.println("Введите тип корма для животного (0 - список)");
                             feedType = UIService.getAnimalFeedType();
                             System.out.println(service.getAllByFeedType(feedType));
                             break;
-                        case COLOR:
+                        case Property.COLOR:
                             System.out.println("Введите цвет животного (0 - список)");
                             color = UIService.getAnimalColor();
                             System.out.println(service.getAllByColor(color));
                             break;
-                        case HABITAT:
+                        case Property.HABITAT:
                             System.out.println("Введите ареал обитания (0 - список)");
                             habitat = UIService.getAnimalHabitat();
                             System.out.println(service.getAllByHabitat(habitat));
